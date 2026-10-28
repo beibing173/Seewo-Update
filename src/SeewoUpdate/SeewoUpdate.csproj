@@ -10,6 +10,7 @@
     <AssemblyName>SeewoUpdate</AssemblyName>
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <Version>1.0.0</Version>
     <Company>beibing173</Company>
     <Product>希沃白板自动更新</Product>

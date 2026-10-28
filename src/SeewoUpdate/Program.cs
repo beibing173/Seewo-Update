@@ -1,5 +1,6 @@
 using System.Threading;
 using SeewoUpdate;
+using SeewoUpdate.Services;
 
 internal static class Program
 {
@@ -15,6 +16,13 @@ internal static class Program
         }
 
         ApplicationConfiguration.Initialize();
-        Application.Run(new TrayApp());
+        Log.Init();
+
+        Application.ThreadException += (_, e) => Log.Error("界面线程未处理异常", e.Exception);
+        AppDomain.CurrentDomain.UnhandledException += (_, e) => Log.Error("未处理异常", e.ExceptionObject as Exception);
+
+        Log.Info($"程序启动，参数：{string.Join(' ', args)}");
+        Application.Run(new TrayApp(args));
+        Log.Info("程序退出");
     }
 }
